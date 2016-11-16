@@ -1,0 +1,16 @@
+1. Goto "www.dataplicity.com ", Register your email to get installation link.
+
+2.Run "xxxxxx.py" on your Pi SSH terminal, 
+(*This will be install "Dataplicity service agent to your Pi and create the user name ="dataplicity")
+
+3.Goto "https://www.dataplicity.com/devices/" to view your Pi's registered device.
+
+4.Click "Activate Wormhole" to enabled the port 80 forward feature. (*Disbled it when not use)
+
+5.Goto "https://xxxxxxx.dataplicity.io/wsName/main.html" to view your private website on internet.
+
+6.In the Labview project set webservice at port 80, Restart RPi. 
+
+7.Deploy webservice at port 80, Goto "http://192.168.5.1:80/wsName/main.html" to verify it work.
+
+8.Refresh "https://xxxxxxx.dataplicity.io/wsName/main.html"

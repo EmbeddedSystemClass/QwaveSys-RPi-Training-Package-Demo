@@ -1,0 +1,91 @@
+<html>
+<head>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+	<script language="javascript" type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+	$(function() {
+		function onDataReceived(data) {
+			// update the displayed count
+			$('#temp').text(String(data.temp) + " :degC");
+		}
+		
+		function fetchData() {
+			$.ajax({
+				url: "temp_read",
+				type: "GET",
+				//data: params,
+				dataType: "json",
+				success: onDataReceived
+			});
+			
+			setTimeout(fetchData, 100);
+		}
+		
+		fetchData();
+		
+		$('#led1on').click(function(){
+			$.ajax({
+				url: "led1_write",
+				type: "GET",
+				data: "value=1",
+				//dataType: "json",
+				//success: onDataReceived
+			});
+		});
+		
+		$('#led1off').click(function(){
+			$.ajax({
+				url: "led1_write",
+				type: "GET",
+				data: "value=0",
+				//dataType: "json",
+				//success: onDataReceived
+			});
+		});
+		
+		
+		$('#led2on').click(function(){
+			$.ajax({
+				url: "led2_write",
+				type: "GET",
+				data: "value=1",
+				//dataType: "json",
+				//success: onDataReceived
+			});
+		});
+		
+		$('#led2off').click(function(){
+			$.ajax({
+				url: "led2_write",
+				type: "GET",
+				data: "value=0",
+				//dataType: "json",
+				//success: onDataReceived
+			});
+		});
+	});
+	</script>
+</head>
+<body>
+<div id="temp" style="font-size: 300%"> :degC</div>
+</br>
+<button id="led1on"style="font-size: 200%">LED1 ON</button>
+<button id="led1off" style="font-size: 200%">Relay1 OFF</button>
+</br>
+<button id="led2on"style="font-size: 200%">LED2 ON</button>
+<button id="led2off" style="font-size: 200%">Relay2 OFF</button>
+
+</br>
+</br>
+  <script src="js/index.js"></script>
+  <!-
+    'id' is the hook we're going to use for our JS, and
+    'getFPImage' is the name of our VI that returns an image
+    of the front panel.
+->
+  <img id="fpimg" src="getFPImage1">
+
+</body>
+</html>
